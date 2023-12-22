@@ -1,15 +1,19 @@
-.app{
+.app {
   background-color: #132434;
   width: 100%;
   height: 100vh;
-
 }
-.nav{
+.nav {
   display: flex;
 }
-.navbar{
+.navbar {
   width: 20%;
 }
 
-
-
+.main {
+  width: 100%;
+  height: 100%;
+}
+.routes {
+  height: 85vh;
+}
