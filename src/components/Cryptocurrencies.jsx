@@ -5,9 +5,11 @@ import { Card, Row, Col, Input } from "antd";
 import { useState } from "react";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 
-const Cryptocurrencies = () => {
-  const { data: cryptosList, isFetching } = useGetCryptosQuery();
+const Cryptocurrencies = ({simplifyed}) => {
+  const count = simplifyed ? 10 : 100;
+  const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
   const cryptos = cryptosList?.data?.coins;
+
 
   if (!cryptos) {
     return null;
@@ -15,7 +17,7 @@ const Cryptocurrencies = () => {
 
   return (
     <>
-      <Row gutters={[32, 32]} className="crypto-container">
+      <Row gutter={[32, 32]} className="crypto-container">
         {cryptos.map((currency) => (
           <Col xs={24} sm={12} lg={6} className="crypto-card" key={currency.id}>
             <Link to={`/crypto/${currency.id}`}>
