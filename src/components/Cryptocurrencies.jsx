@@ -9,7 +9,7 @@ const Cryptocurrencies = ({ simplifyed }) => {
   const count = simplifyed ? 10 : 100;
   const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
   // const cryptos = cryptosList?.data?.coins;
-  const [cryptos, setCryptos] = useState([])
+  const [cryptos, setCryptos] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
@@ -26,11 +26,14 @@ const Cryptocurrencies = ({ simplifyed }) => {
 
   return (
     <>
-      <div className="search">
-        <Input
-          placeholder="Search Cryptocurrency"
-          onChange={(e) => setSearchTerm(e.target.value)}></Input>
-      </div>
+      {!simplifyed && (
+        <div className="search">
+          <Input
+            placeholder="Search Cryptocurrency"
+            onChange={(e) => setSearchTerm(e.target.value)}></Input>
+        </div>
+      )}
+
       <Row gutter={[32, 32]} className="crypto-container">
         {cryptos.map((currency) => (
           <Col xs={24} sm={12} lg={6} className="crypto-card" key={currency.id}>
