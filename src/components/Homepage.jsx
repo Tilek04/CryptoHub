@@ -67,7 +67,7 @@ function Homepage() {
           <Link to="/news">Show more</Link>
         </Title>
       </div>
-      <News simplified />
+      <News simplifyed />
     </>
   );
 }

@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import { Select, Avatar, Card, Row, Typography } from "antd";
+import moment from "moment";
+import { useNewsQuery } from "../services/newsApi";
 
-const News = () => {
-  return (
-    <div>News</div>
-  )
-}
+const { Text, Title } = Typography;
+const { Option } = Select;
 
-export default News
+const News = ({ simplifyed }) => {
+
+
+
+  return <div>News</div>;
+};
+
+export default News;
