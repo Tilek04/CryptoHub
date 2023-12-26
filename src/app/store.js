@@ -8,7 +8,7 @@ const store = configureStore({
     [newsApi.reducerPath]: newsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(cryptoApi.middleware),
+    getDefaultMiddleware().concat(cryptoApi.middleware, newsApi.middleware), // добавляем middleware для newsApi
 });
 
 export default store;
