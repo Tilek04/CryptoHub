@@ -59,15 +59,7 @@ function Homepage() {
       </div>
       <Cryptocurrencies simplifyed />
 
-      <div className="home-container">
-        <Title level={1} className="home-title">
-          Latest crypro News
-        </Title>
-        <Title level={3} className="show-more">
-          <Link to="/news">Show more</Link>
-        </Title>
-      </div>
-      <News simplifyed />
+    
     </>
   );
 }
