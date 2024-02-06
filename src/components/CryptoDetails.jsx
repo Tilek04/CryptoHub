@@ -121,23 +121,68 @@ const CryptoDetails = () => {
           <Option key={date}>{date}</Option>
         ))}
       </Select>
-      <Col className="stats_container">
-        <Col className="coin_value_statistics">
-          <Col className="coin_head_statistics">
-            <Title level={3}>{cryptoDetails.name} Value Statistics</Title>
-            <p>An overview showing the stats of {cryptoDetails.name}</p>
+      <Col>
+        <Col className="stats_container">
+          <Col className="coin_value_statistics">
+            <Col className="coin_head_statistics">
+              <Title level={3}>{cryptoDetails.name} Value Statistics</Title>
+              <p>An overview showing the stats of {cryptoDetails.name}</p>
+            </Col>
+          </Col>
+        </Col>
+        {stats.map(({ icon, title, value }) => (
+          <Col className="coin_stats">
+            <Col className="stats_name">
+              <Text>{icon}</Text>
+              <Text>{title}</Text>
+            </Col>
+
+            <Text className="stats">{value}</Text>
+          </Col>
+        ))}
+      </Col>
+      <Col>
+        <Col className="stats_container">
+          <Col className="other-stats-info">
+            <Col className="coin_head_statistics">
+              <Title level={3}>Other Statistics</Title>
+              <p>An overview showing the stats of all cryptocurrencies</p>
+            </Col>
+          </Col>
+        </Col>
+        {genericStats.map(({ icon, title, value }) => (
+          <Col className="coin_stats">
+            <Col className="stats_name">
+              <Text>{icon}</Text>
+              <Text>{title}</Text>
+            </Col>
+
+            <Text className="stats">{value}</Text>
+          </Col>
+        ))}
+        <Col className="coin-desc-link">
+          <Row className="coin-desc">
+            <Title level={3} className="coin-details-heading">
+              What is {cryptoDetails.name}
+              <br />
+              {cryptoDetails.description}
+            </Title>
+          </Row>
+          <Col className="coin-links">
+            <Title level={3} className="coin-details-heading">
+              {cryptoDetails.name} Links
+            </Title>
+            {cryptoDetails.links.map((link) => (
+              <Row className="coin-link" key={link.name}>
+                <Title level={5} className="link-name">
+                  {link.type}
+                </Title>
+                <a href={link.url} target="_blank" rel="noreferrer">{link.name}</a>
+              </Row>
+            ))}
           </Col>
         </Col>
       </Col>
-      {stats.map(({ icon, title, value }) => (
-        <Col className="coin_stats">
-          <Col className="stats_name">
-            <Text>{icon}</Text>
-            <Text>{title}</Text>
-          </Col>
-          <Text className="stats">{value}</Text>
-        </Col>
-      ))}
     </>
   );
 };
