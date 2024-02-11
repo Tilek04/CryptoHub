@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import millify from "millify";
 import { Col, Row, Typography, Select } from "antd";
-import { useGetCryptoDetailsQuery } from "../services/cryptoApi";
+import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from "../services/cryptoApi";
+import LineChart from "./LineChart";
 import {
   MoneyCollectOutlined,
   FundOutlined,
@@ -22,8 +23,13 @@ const { Option } = Select;
 
 const CryptoDetails = () => {
   const { coinId } = useParams();
-  const [timePeriod, setTimePeriod] = useState("7d");
+  const [timeperiod, setTimePeriod] = useState("7d");
   const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
+  const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timeperiod });
+
+
+  console.log(timeperiod)
+  
   const cryptoDetails = data?.data?.coin;
   console.log(cryptoDetails);
 
@@ -121,6 +127,12 @@ const CryptoDetails = () => {
           <Option key={date}>{date}</Option>
         ))}
       </Select>
+
+      <LineChart
+        coinHistory={coinHistory}
+        currentPrice={millify(cryptoDetails.price)}
+        coinName={cryptoDetails.name}
+      />
       <Col>
         <Col className="stats_container">
           <Col className="coin_value_statistics">
@@ -177,7 +189,9 @@ const CryptoDetails = () => {
                 <Title level={5} className="link-name">
                   {link.type}
                 </Title>
-                <a href={link.url} target="_blank" rel="noreferrer">{link.name}</a>
+                <a href={link.url} target="_blank" rel="noreferrer">
+                  {link.name}
+                </a>
               </Row>
             ))}
           </Col>
