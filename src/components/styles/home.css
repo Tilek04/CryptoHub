@@ -1,0 +1,20 @@
+.main-container{
+    background-color: #0b0b0c;
+    margin: auto;
+}
+.heading{
+margin-left: 30%;
+padding-top: 20px;
+}
+.table{
+    margin: auto;
+    display: flex;
+}
+.table-text{
+    color: aliceblue;
+}
+.home-title{
+margin-left: 20%;
+padding-top: 50px;
+
+}

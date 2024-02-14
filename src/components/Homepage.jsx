@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import Cryptocurrencies from "./Cryptocurrencies";
 import News from "./News";
+import "./styles/home.css";
 
 const { Title } = Typography;
 function Homepage() {
@@ -15,52 +16,77 @@ function Homepage() {
   if (isFetching) return "Loading";
 
   return (
-    <>
-      <Title level={2} className="heading">
+    <div className="main-container">
+      <Title level={2} className="heading" style={{ color: "white" }}>
         Global Crypto Stats
       </Title>
-      <Row>
+      <Row className="table">
         <Col span={12}>
-          <Statistic title="Total Cryptocurrencies" value={globalStats.total} />
+          <Statistic
+            style={{ display: "flex", paddingLeft: '40px', paddingTop: '15px' }}
+            title={
+              <span style={{ color: "#09eab4", fontSize: "25px" }}>
+                Total Cryptocurrencies:
+              </span>
+            }
+            value={globalStats.total}
+            valueStyle={{ color: "white", paddingLeft: "20px" }}
+          />{" "}
         </Col>
         <Col span={12}>
           <Statistic
-            title="Total Exchanges"
+            style={{ display: "flex", paddingLeft: '40px', paddingTop: '15px' }}
+            valueStyle={{ color: "white", paddingLeft: "20px" }}
+            title={
+              <span style={{ color: "#09eab4", fontSize: "25px" }}>
+                Total Exchanges:
+              </span>
+            }
             value={millify(globalStats.totalExchanges)}
           />
         </Col>
         <Col span={12}>
           <Statistic
-            title="Total Market Cap"
+            style={{ display: "flex", paddingLeft: '40px', paddingTop: '15px' }}
+            valueStyle={{ color: "white", paddingLeft: "20px" }}
+            title={
+              <span style={{ color: "#09eab4", fontSize: "25px" }}>
+                Total Market Cap:
+              </span>
+            }
             value={millify(globalStats.totalMarketCap)}
           />
         </Col>
         <Col span={12}>
           <Statistic
-            title="Total 24h Volume"
+            style={{ display: "flex", paddingLeft: '40px', paddingTop: '15px' }}
+            valueStyle={{ color: "white", paddingLeft: "20px" }}
+            title={<span style={{ color: '#09eab4', fontSize: '25px' }}>Total 24h Volume:</span>}
+
             value={millify(globalStats.total24hVolume)}
           />
         </Col>
         <Col span={12}>
           <Statistic
-            title="Total Markets"
+            style={{ display: "flex", paddingLeft: '40px', paddingTop: '15px' }}
+            valueStyle={{ color: "white", paddingLeft: "20px"  }}
+            title={<span style={{ color: '#09eab4', fontSize: '25px' }}>Total Markets:</span>}
+
             value={millify(globalStats.totalMarkets)}
           />
         </Col>
       </Row>
 
       <div className="home-container">
-        <Title level={1} className="home-title">
+        <Title level={1} className="home-title"  style={{color: 'white'}}>
           Top 10 Cryptocurrencies in the world
         </Title>
         <Title level={3} className="show-more">
-          <Link to="/cryptocurrencies">Show more</Link>
+          <Link to="/cryptocurrencies" >Show more</Link>
         </Title>
       </div>
       <Cryptocurrencies simplifyed />
-
-    
-    </>
+    </div>
   );
 }
 

@@ -1,13 +1,21 @@
 .app {
-  background-color: #132434;
+  background-color: #06111b;
   width: 100%;
   height: 100vh;
+
 }
 .nav {
   display: flex;
+height: 100vh;
 }
 .navbar {
   width: 20%;
+position: fixed;
+z-index: 1;
+background-color: #06111b;
+height: 100vh;
+
+
 }
 
 .main {
@@ -16,4 +24,7 @@
 }
 .routes {
   height: 100%;
+  width: 80%;
+  position: relative;
+  left: 20%;
 }

@@ -1,11 +1,36 @@
 
-
 .logo-nav{
     display: flex;
-    background-color: #001529;
+    background-color: #06111b;
+    padding-top: 30px;
+    padding-left: 5px;
+
 
 }
-.nav__container{
-    height: 100%;
+.logo{
+    padding-left: 10px;
 
+}
+
+.nav__container{
+    background-color: #06111b;
+    
+}
+.menu{
+    background-color: #06111b;
+    color: white;
+    
+}
+
+.options{
+height: 50px;
+font-size: 20px;
+
+}
+.nav-text{
+    font-size: 20px;
+}
+.icons{
+    font-size: 130px;
+    
 }
